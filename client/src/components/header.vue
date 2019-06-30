@@ -9,14 +9,13 @@
          <div class="search-container">
             <form>
                 <input type="text" placeholder="Aku mau belanja.." v-model="searchValue">
-                <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
         
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
             <li>
-                <a class="nav-link"><router-link to="/login">LogiTukTukn </router-link></a>
+                <a class="nav-link"><router-link to="/login">Login </router-link></a>
             </li>
             <li>
                 <a class="nav-link"><router-link to="/register">Register </router-link></a>
@@ -30,7 +29,7 @@ export default {
     name: 'default-navbar',
     data() {
         return {
-            searchValue=''
+            searchValue:''
         }
     }
 }
@@ -40,10 +39,16 @@ export default {
     nav {
         background-color: #41b883
     }
+
     li a{
         font-weight: bold;
         font-size: 18px;
         color: white
+    }
+    
+    input{
+        margin-left: 30%;
+        width: 600px;
     }
 </style>
 

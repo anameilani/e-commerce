@@ -5,11 +5,11 @@ class transactionController{
 
     static create(req, res, next){
         let newTransaction= new Transaction({
-            userId: req.body.userId,
+            userId: req.recode.userId,
             itemId: req.body.itemId,
             amount: req.body.amount,
             totalPrice: req.body.amount * req.body.price,
-            status: 'not paid'
+            status: 'not-paid'
         })
 
         newTransaction.save()
@@ -20,7 +20,7 @@ class transactionController{
     }
 
     static findAll(req, res, next){
-        Transaction.find({userId: req.params.id})
+        Transaction.find({userId: req.decode.id, status: req.params.status})
         .populate('userId')
         .populate('itemId')
         .then(transactions=>{

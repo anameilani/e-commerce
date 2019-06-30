@@ -1,24 +1,28 @@
 <template>
-  <div class="home">
-    <defaultNav />
-      <div class="row">
-        <h1>Body</h1>
-      </div>
-    <footerPage />
-    
-  </div>
+    <div>
+        <navbar />
+        <div class="row">
+            <itemHome />
+        </div>
+        <footerPage />
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import defaultNav from '@/components/header.vue'
+import navbar from '@/components/navbar.vue'
 import footerPage from '@/components/footer.vue'
+import itemHome from '@/components/itemHome.vue'
 
 export default {
-  name: 'home',
-  components: {
-    defaultNav,
-    footerPage
-  }
+    name:'home',
+    components:{
+        navbar,
+        footerPage,
+        itemHome
+    }
 }
 </script>
+
+<style>
+
+</style>

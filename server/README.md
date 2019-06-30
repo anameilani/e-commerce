@@ -93,15 +93,39 @@
     body: none
     Success Response: 
         Code 200:
+           [
             {
-                "_id":"5d10ac4549ae974089eda01b",
-                "name":"laptop",
-                "image":"https://id-test-11.slatic.net/original/1a41141c912c0b5e8eb635b76e4da43a.jpg",
-                "price":8000000,
-                "stock":2,
-                "owner":"5d10a8fb6776a53e8f8f12ed",
-                "__v":0
-            }
+                "_id": "5d10ac4549ae974089eda01b",
+                "name": "laptop",
+                "image": "https://id-test-11.slatic.net/original/1a41141c912c0b5e8eb635b76e4da43a.jpg",
+                "price": 8000000,
+                "stock": 3,
+                "owner": {
+                    "_id": "5d10a8fb6776a53e8f8f12ed",
+                    "name": "Ana",
+                    "email": "ana@mail.com",
+                    "password": "$2b$10$iZWscBJjoGT8keRIOthySuwOIFMgIpHChImQtG5ZqdaJ/.MxnD8Fi",
+                    "__v": 0
+                },
+                "__v": 0
+            },
+            {
+                "_id": "5d1725f5a835062489ae5ead",
+                "name": "Kulkas 2 Pintu Panasonic",
+                "image": "https://harga.info/wp-content/uploads/2017/09/Kulkas-2-Pintu-Terbaik.jpg",
+                "price": 12000000,
+                "stock": 10,
+                "owner": {
+                    "_id": "5d1724f1a835062489ae5ea9",
+                    "name": "meilani",
+                    "email": "meilani@mail.com",
+                    "password": "$2b$10$TqAs6kCHw9vL92KiKoPVJOLeesoaLciPB3ZQrdI0PpL/Nwtn7beY6",
+                    "__v": 0
+                },
+                "__v": 0
+            },
+            ......
+           ]
     Error Response:
         Code 500:
         Content: {message: <error message>}
@@ -116,15 +140,39 @@
     body: none
     Success Response: 
         Code 200:
+            [
             {
-                "_id":"5d10ac4549ae974089eda01b",
-                "name":"laptop",
-                "image":"https://id-test-11.slatic.net/original/1a41141c912c0b5e8eb635b76e4da43a.jpg",
-                "price":8000000,
-                "stock":2,
-                "owner":"5d10a8fb6776a53e8f8f12ed",
-                "__v":0
-            }
+                "_id": "5d10ac4549ae974089eda01b",
+                "name": "laptop",
+                "image": "https://id-test-11.slatic.net/original/1a41141c912c0b5e8eb635b76e4da43a.jpg",
+                "price": 8000000,
+                "stock": 3,
+                "owner": {
+                    "_id": "5d10a8fb6776a53e8f8f12ed",
+                    "name": "Ana",
+                    "email": "ana@mail.com",
+                    "password": "$2b$10$iZWscBJjoGT8keRIOthySuwOIFMgIpHChImQtG5ZqdaJ/.MxnD8Fi",
+                    "__v": 0
+                },
+                "__v": 0
+            },
+            {
+                "_id": "5d1202f8eaa81a0bfd2e74d4",
+                "name": "laptop",
+                "image": "https://id-test-11.slatic.net/original/1a41141c912c0b5e8eb635b76e4da43a.jpg",
+                "price": 8000000,
+                "stock": 5,
+                "owner": {
+                    "_id": "5d10a8fb6776a53e8f8f12ed",
+                    "name": "Ana",
+                    "email": "ana@mail.com",
+                    "password": "$2b$10$iZWscBJjoGT8keRIOthySuwOIFMgIpHChImQtG5ZqdaJ/.MxnD8Fi",
+                    "__v": 0
+                },
+                "__v": 0
+            },
+            ......
+           ]
     Error Response:
         Code 500:
         Content: {message: <error message>}

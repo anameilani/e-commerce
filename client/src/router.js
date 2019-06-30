@@ -1,28 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Landing from './views/Landing.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
+import Home from './views/Home.vue'
+import myItem from './views/MyItem.vue'
+import addItem from './views/addItem.vue'
 
 
 Vue.use(Router)
 
-export default new Router({
+ const router= new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      name: 'landing',
+      component: Landing
     },
     {
       path: '/login',
@@ -34,7 +29,40 @@ export default new Router({
       name: 'register',
       component: Register
     },
+    {
+      path: '/home',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/myitem',
+      name: 'myitem',
+      component: myItem
+    }
 
 
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if(to.fullPath == '/'){
+    if(localStorage.token == undefined){
+      next()
+    }
+  }else if(to.fullPath == '/login'){
+    if(localStorage.token == undefined){
+      next()
+    }
+  }else if(to.fullPath == '/register'){
+    if(localStorage.token == undefined){
+      next()
+    }
+  }
+  else if(localStorage.token == undefined) {
+    next({ path: '/login', });
+  } else {
+    next();
+  }
+})
+
+export default router

@@ -28,7 +28,8 @@ class itemController{
     }
 
     static findAllwithId(req, res, next){
-        Item.find({owner: req.params.id})
+        console.log(req.decode, '======')
+        Item.find({owner: req.decode.id})
         .then(items=>{
             res.status(200).json(items)
         })

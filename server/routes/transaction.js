@@ -3,7 +3,7 @@ const transactionController= require('../controllers/transactionController')
 const authencation= require('../middlewares/authenticate')
 
 router.use(authencation)
-router.get('/:id', transactionController.findAll)
+router.get('/:status', transactionController.findAll)
 router.post('/', transactionController.create)
 router.patch('/:id', transactionController.update)
 router.delete('/:id', transactionController.remove)

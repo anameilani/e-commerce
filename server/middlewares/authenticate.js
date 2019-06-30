@@ -3,6 +3,7 @@ const User= require('../models/user')
 
 function authentication(req, res, next){
     if(req.headers.hasOwnProperty('token')){
+        console.log(req.headers)
         let decode= jwt.verify(req.headers.token, process.env.SECRET_KEY_TOKEN)
         req.decode= decode
 
