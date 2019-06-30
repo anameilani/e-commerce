@@ -5,7 +5,7 @@ class itemController{
     static create(req, res, next){
         const newItem= new Item({
             name: req.body.name,
-            image: req.body.image,
+            image: req.file.cloudStoragePublicUrl,
             price: req.body.price,
             stock: req.body.stock,
             owner: req.body.owner
@@ -28,7 +28,7 @@ class itemController{
     }
 
     static findAllwithId(req, res, next){
-        console.log(req.decode, '======')
+
         Item.find({owner: req.decode.id})
         .then(items=>{
             res.status(200).json(items)
@@ -37,6 +37,7 @@ class itemController{
     }
 
     static findOne(req, res, next){
+        console.log('masuk findOne')
         Item.findById(req.params.id)
         .populate('owner')
         .then(item=>{

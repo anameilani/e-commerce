@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" style="height: 70px">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="">
-            <a  style="font-size: 35px; color: #eaecfc">
+            <a  style="font-size: 35px; color: #eaecfc; font-family: 'Courgette', cursive;">
                 <i class="fas fa-dove"></i> TukuToko</a>
         </a>
 
@@ -20,15 +20,15 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    My Product
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="">
                          <router-link to="/myitem" style="color: brown; font-size: 16px;">List Product </router-link>
                     </a>
                     <a class="dropdown-item" href="#" >
-                        <router-link to="/additem" style="color: brown; font-size: 16px;">Add Product</router-link>
+                        <router-link to="/add" style="color: brown; font-size: 16px;">Add Product</router-link>
                     </a>
                 </div>
             </li>

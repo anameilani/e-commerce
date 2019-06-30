@@ -29,7 +29,7 @@ before(function(done){
 describe('Test CRUD Transaction', function(){
 
     describe('Create transaction function test', function(){
-        describe.only('POST /transaction', function(){
+        describe('POST /transaction', function(){
             it('should send an object with 201 status code', function(done) {
                 console.log('masuk describe');
                 console.log(token)

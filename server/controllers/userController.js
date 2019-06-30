@@ -19,10 +19,8 @@ class userController{
         }
     
     static login(req, res, next){
-            console.log('masuk login')
             User.findOne({email: req.body.email})
             .then(user=>{
-                console.log(user)
                 if(user){
                     if(compare(req.body.password, user.password)){
                         let payload= {

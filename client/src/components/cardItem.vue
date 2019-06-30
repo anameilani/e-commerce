@@ -6,9 +6,9 @@
             <p class="card-text">{{price}}</p>
             <p class="card-text">Stock: {{stock}}</p>
             <div v-if="isLogin == 'login'" class="d-flex justify-content-around">
-                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detailModal">Detail</a>
+                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" :data-target="itemId" >Detail</a>
             </div>
-            <detailModal :item="product" />
+            <detailModal :item="product" :key="product._id"/>
         </div>
     </div>
 </template>
@@ -27,7 +27,8 @@ export default {
         return {
             name:'',
             price:'',
-            stock:''
+            stock:'',
+            itemId:''
             
         }
     },
@@ -36,6 +37,7 @@ export default {
         this.name= this.product.name.toUpperCase()
         this.price= getFormatRupiah(this.product.price)
         this.stock= this.checkStock()
+        this.itemId= '#detailModal_'+this.product._id
         
     },
     methods:{
@@ -46,6 +48,8 @@ export default {
                 return 'Out of Stock'
             }
         }
+            
+
     }
 }
 </script>

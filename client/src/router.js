@@ -6,6 +6,8 @@ import Register from './views/Register.vue'
 import Home from './views/Home.vue'
 import myItem from './views/MyItem.vue'
 import addItem from './views/addItem.vue'
+import myCart from './views/MyCart.vue'
+import myHistory from './views/History.vue'
 
 
 Vue.use(Router)
@@ -37,7 +39,23 @@ Vue.use(Router)
     {
       path: '/myitem',
       name: 'myitem',
-      component: myItem
+      component: myItem,
+    },
+    {
+      path:'/add',
+      name:'addItem',
+      component: addItem
+    },
+    {
+      path:'/mycart',
+      name:'mycart',
+      component: myCart
+
+    },
+    {
+      path:'/myhistory',
+      name: 'myhistory',
+      component: myHistory
     }
 
 

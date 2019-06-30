@@ -1,10 +1,10 @@
 <template>
-    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModal" aria-hidden="true">
+    <div class="modal fade" :id="'detailModal_'+item._id" tabindex="-1" role="dialog" aria-labelledby="detailModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">{{name}}</h4>
-                <button @click="close" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button @click.prevent="close" type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button @click="addToCart" type="button" class="btn btn-primary">Add To Cart</button>
+                <button @click.prevent="addToCart" type="button" class="btn btn-primary">Add To Cart</button>
             </div>
             </div>
         </div>
@@ -47,7 +47,9 @@ export default {
             
         }
     },
-     created() {
+     mounted() {
+         console.log(this.item, '======');
+         
         this.name= this.item.name.toUpperCase()
         this.getPrice= getFormatRupiah(this.item.price)
 
@@ -57,10 +59,12 @@ export default {
         addToCart(){
             axios({
                 method: 'post',
-                url: '/users/register',
+                url: '/transaction',
                 data:{
+                    userId: localStorage.userId,
                     itemId: this.item._id,
                     amount: this.quantity,
+                    price: this.item.price
                 },
                 header:{
                     'token': localStorage.token
@@ -72,14 +76,17 @@ export default {
                     '',
                     'success'
                 )
+                this.$router.push('/home')
             })
             .catch(err=>{
-            console.log('error register')
+            console.log('error add to cart')
             console.log(err)
             })
         },
 
        close(){
+           console.log('trigger close');
+           
            this.name='',
            this.price='',
            this.quantity=0

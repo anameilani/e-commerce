@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" style="height: 70px">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="">
-            <a  style="font-size: 35px; color: #eaecfc">
+            <a  style="font-size: 35px; color: #eaecfc; font-family: 'Courgette', cursive;">
                 <i class="fas fa-dove"></i> TukuToko</a>
         </a>
 
@@ -14,6 +14,11 @@
         
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
+            <li>
+                <a class="nav-link">
+                    <router-link to="/"><i class="fas fa-home" style="font-size: 25px;"></i></router-link>
+                </a>
+            </li>
             <li>
                 <a class="nav-link"><router-link to="/login">Login </router-link></a>
             </li>

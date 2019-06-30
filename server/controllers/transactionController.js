@@ -4,8 +4,9 @@ const Transaction= require('../models/transaction')
 class transactionController{
 
     static create(req, res, next){
+        console.log(req.decode,'=====')
         let newTransaction= new Transaction({
-            userId: req.recode.userId,
+            userId: req.body.userId,
             itemId: req.body.itemId,
             amount: req.body.amount,
             totalPrice: req.body.amount * req.body.price,
@@ -20,17 +21,19 @@ class transactionController{
     }
 
     static findAll(req, res, next){
-        Transaction.find({userId: req.decode.id, status: req.params.status})
+        console.log('masuk find transaction')
+        Transaction.find({userId: req.params.id, status: req.params.status})
         .populate('userId')
         .populate('itemId')
         .then(transactions=>{
-            console.log(transactions, '====================')
+            
             res.status(200).json(transactions)
         })
         .catch(next)
     }
 
     static update(req, res, next){
+        console.log(req.params.id)
         Transaction.findByIdAndUpdate(req.params.id, {[req.body.field]: req.body.value})
         .then(transaction=>{
             res.status(200).json(transaction)

@@ -9,8 +9,8 @@ export default new Vuex.Store({
       items:[],
       myitems:[],
       token:'',
-      cart:[],
-      history:[],
+      mycart:[],
+      myhistory:[],
     },
     mutations: {
       SETPRODUCT (state, payload) {
@@ -26,11 +26,11 @@ export default new Vuex.Store({
       },
 
       SETCART (state, payload) {
-          this.state.cart= payload
+          this.state.mycart= payload
       },
 
       SETHISTORY (state, payload) {
-          this.state.history= payload
+          this.state.myhistory= payload
       },
 
     },
@@ -70,12 +70,13 @@ export default new Vuex.Store({
       getCart (context){
         axios({
           method: 'get',
-          url: `/transaction/not-paid`,
+          url: `/transaction/${localStorage.userId}/not-paid`,
           headers :{
             'token' : localStorage.token
           }
         })
         .then(({data})=>{
+            console.log(data)
             context.commit('SETCART', data)
         })
         .catch(err=>{
@@ -87,7 +88,7 @@ export default new Vuex.Store({
       getHistory (context) {
         axios({
           method: 'get',
-          url: `/transaction/paid`,
+          url: `/transaction/${localStorage.userId}/paid`,
           headers :{
             'token' : localStorage.token
           }

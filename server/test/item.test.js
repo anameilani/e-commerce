@@ -29,7 +29,7 @@ before(function(done){
         })
 })
 
-describe('Function CRUD Item Test', function(){
+describe.only('Function CRUD Item Test', function(){
     describe('Get all item function test', function(){
         describe('GET /items', function(){
             it('should send an array with 200 status code', function(done) {
@@ -53,7 +53,7 @@ describe('Function CRUD Item Test', function(){
             it('should send an array with 200 status code', function(done) {
                 chai
                 .request(app)
-                .get('/items/5d10a8fb6776a53e8f8f12ed')
+                .get('/items/myitem')
                 .set('token', token)
                 .then(function(res){
                     expect(res).to.have.status(200);
@@ -98,7 +98,7 @@ describe('Function CRUD Item Test', function(){
                 .request(app)
                 .post('/items')
                 .set('token', token)
-                .send({name: 'laptop', image:'https://id-test-11.slatic.net/original/1a41141c912c0b5e8eb635b76e4da43a.jpg', price:'8000000', stock:'5', owner: '5d10a8fb6776a53e8f8f12ed'})
+                .send({name: 'laptop', image:'https://id-test-11.slatic.net/original/1a41141c912c0b5e8eb635b76e4da43a.jpg', price:8000000, stock:5, owner: '5d10a8fb6776a53e8f8f12ed'})
                 .then(function(res){
                     expect(res).to.have.status(201);
                     expect(res.body).to.be.an('object');

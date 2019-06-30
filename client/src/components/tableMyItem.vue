@@ -1,19 +1,21 @@
 <template>
     <div id="table-myitem">
         <table class="table">
-            <thead class="thead-dark">
+            <thead class="thead-light">
                 <tr>
                 <th scope="col">No</th>
                 <th scope="col">Name</th>
+                <th scope="col">Featured Image</th>
                 <th scope="col">Price</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Options</th>
                 </tr>
             </thead>
             <tbody id="table-body">
-                <tr v-for="(item, index) in items" >
+                <tr v-for="(item, index) in items" :key="item.id">
                 <th scope="row">{{index+1}}</th>
                 <td>{{item.name}}</td>
+                <td><img :src="item.image" alt="Image Product" style="width: 80px; height:70px;"></td>
                 <td>{{item.price}}</td>
                 <td>{{item.stock}}</td>
                 <td>
@@ -38,12 +40,13 @@
 import axios from '@/api/axios.js'
 
 
+
 export default {
     name:'tableMyItem',
     props: ['items'],
     data() {
         return {
-
+            price:''
         }
     },
     methods:{
@@ -80,7 +83,7 @@ export default {
                 }
             })
         }
-    },
+    }
 }
 </script>
 
@@ -88,10 +91,8 @@ export default {
     #table-myitem{
         width: 100%;
         height: 600px;
-    }
-
-    #table-body{
         overflow: scroll;
     }
+
 
 </style>
