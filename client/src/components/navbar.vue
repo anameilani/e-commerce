@@ -25,10 +25,10 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="">
-                         <router-link to="/myitem" style="color: brown; font-size: 16px;">List Product </router-link>
+                         <router-link to="/myitem/list" style="color: brown; font-size: 16px;">List Product </router-link>
                     </a>
                     <a class="dropdown-item" href="#" >
-                        <router-link to="/add" style="color: brown; font-size: 16px;">Add Product</router-link>
+                        <router-link to="/myitem/add" style="color: brown; font-size: 16px;">Add Product</router-link>
                     </a>
                 </div>
             </li>

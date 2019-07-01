@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody id="table-body">
-                <tr v-for="(item, index) in items" :key="item.id">
+                <tr v-for="(item, index) in myitems" :key="item.id">
                 <th scope="row">{{index+1}}</th>
                 <td>{{item.name}}</td>
                 <td><img :src="item.image" alt="Image Product" style="width: 80px; height:70px;"></td>
@@ -38,12 +38,11 @@
 
 <script>
 import axios from '@/api/axios.js'
-
+import {mapState} from 'vuex'
 
 
 export default {
     name:'tableMyItem',
-    props: ['items'],
     data() {
         return {
             price:''
@@ -83,6 +82,12 @@ export default {
                 }
             })
         }
+    },
+     computed:{
+        ...mapState(['myitems'])
+    },
+    mounted(){
+        this.$store.dispatch('getMyItems')
     }
 }
 </script>

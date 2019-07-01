@@ -5,9 +5,10 @@ import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import Home from './views/Home.vue'
 import myItem from './views/MyItem.vue'
-import addItem from './views/addItem.vue'
 import myCart from './views/MyCart.vue'
 import myHistory from './views/History.vue'
+import formItem from './components/formItem.vue'
+import tableMyItem from './components/tableMyItem.vue'
 
 
 Vue.use(Router)
@@ -40,11 +41,18 @@ Vue.use(Router)
       path: '/myitem',
       name: 'myitem',
       component: myItem,
-    },
-    {
-      path:'/add',
-      name:'addItem',
-      component: addItem
+      children:[
+        {
+          path:'list',
+          name: 'list',
+          component: tableMyItem
+        },
+        {
+          path:'add',
+          name:'add',
+          component: formItem
+        }
+      ]
     },
     {
       path:'/mycart',

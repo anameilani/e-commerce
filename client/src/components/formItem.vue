@@ -85,7 +85,7 @@ export default {
                 this.item.image=''
                 this.item.price=''
                 this.item.stock=''
-                this.$router.push('/myitem')
+                this.$router.push('/myitem/list')
             })
             .catch(function(err){
                 Swal.fire({
